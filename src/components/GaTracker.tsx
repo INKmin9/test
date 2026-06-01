@@ -8,6 +8,8 @@ const getScreenName = (pathname: string): string => {
     '/about': 'About',
     '/services': 'Services',
     '/contact': 'Contact',
+    '/search': 'Search',
+    '/product': 'Product',
   }
   return screenNames[pathname] || pathname
 }
@@ -19,6 +21,8 @@ const getScreenClass = (pathname: string): string => {
     '/about': 'AboutPage',
     '/services': 'ServicesPage',
     '/contact': 'ContactPage',
+    '/search': 'SearchPage',
+    '/product': 'ProductPage',
   }
   return screenClasses[pathname] || 'UnknownPage'
 }

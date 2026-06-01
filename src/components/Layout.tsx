@@ -5,6 +5,7 @@ const navItems = [
   { path: '/about', label: 'About' },
   { path: '/services', label: 'Services' },
   { path: '/contact', label: 'Contact' },
+  { path: '/search?q=&category=all', label: 'Search' },
 ]
 
 export default function Layout() {
@@ -24,7 +25,7 @@ export default function Layout() {
                   key={item.path}
                   to={item.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    location.pathname === item.path
+                    location.pathname === item.path.split('?')[0]
                       ? 'bg-indigo-100 text-indigo-700'
                       : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                   }`}

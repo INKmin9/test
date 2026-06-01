@@ -19,6 +19,22 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GA Test App</title>
+    <!-- GitHub Pages SPA 리다이렉트 처리 -->
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const redirect = params.get('p');
+        if (redirect) {
+          params.delete('p');
+          const remaining = params.toString();
+          const newUrl =
+            window.location.origin +
+            redirect +
+            (remaining ? (redirect.includes('?') ? '&' : '?') + remaining : '');
+          window.history.replaceState(null, '', newUrl);
+        }
+      })();
+    </script>
   </head>
   <!-- Google tag (gtag.js) -->
   <script

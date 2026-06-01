@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      // GitHub Pages SPA 리다이렉트
+      // 경로를 쿼리 파라미터로 변환하여 index.html로 전달
+      const segment = 1; // repo가 username.github.io면 0, 아니면 1
+      const path = window.location.pathname
+        .split('/')
+        .slice(segment + 1)
+        .join('/');
+      const search = window.location.search;
+      const redirectUrl =
+        window.location.origin +
+        '/' +
+        window.location.pathname.split('/').slice(1, segment + 1).join('/') +
+        '/?p=' +
+        encodeURIComponent('/' + path + search);
+      window.location.replace(redirectUrl);
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
